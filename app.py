@@ -35,31 +35,67 @@ st.markdown("""
         max-width: 1200px;
     }
 
-    /* Sidebar styling */
+    /* Sidebar base */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #080C20 0%, #0D1235 100%);
-        border-right: 1px solid rgba(0, 212, 170, 0.08);
+        background: linear-gradient(180deg, #06091A 0%, #0B0F2A 60%, #0D1235 100%);
+        border-right: 1px solid rgba(0, 212, 170, 0.12);
     }
 
-    [data-testid="stSidebar"] .block-container {
-        padding-top: 1rem;
+    /* Nav item rows */
+    [data-testid="stSidebar"] .stRadio > div {
+        gap: 2px !important;
+        padding: 0 0.75rem !important;
     }
 
-    /* Sidebar radio buttons — navigation items */
-    [data-testid="stSidebar"] .stRadio > label {
-        color: #8892B0 !important;
-        font-size: 0.95rem;
+    /* Each nav label */
+    [data-testid="stSidebar"] .stRadio label {
+        display: flex !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0.6rem 0.9rem !important;
+        border-radius: 10px !important;
+        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        color: #A0AABB !important;
+        cursor: pointer !important;
+        transition: background 0.18s, color 0.18s !important;
+        border: 1px solid transparent !important;
+        margin: 1px 0 !important;
+        background: transparent !important;
     }
 
-    [data-testid="stSidebar"] .stRadio > div > label {
-        padding: 0.5rem 0.8rem;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        cursor: pointer;
+    /* Label text spans — force visible */
+    [data-testid="stSidebar"] .stRadio label span {
+        color: #A0AABB !important;
+        font-size: 0.88rem !important;
     }
 
-    [data-testid="stSidebar"] .stRadio > div > label:hover {
-        background: rgba(0, 212, 170, 0.08);
+    /* Hover state */
+    [data-testid="stSidebar"] .stRadio label:hover {
+        background: rgba(0, 212, 170, 0.08) !important;
+        border-color: rgba(0, 212, 170, 0.18) !important;
+        color: #D0D8E8 !important;
+    }
+
+    [data-testid="stSidebar"] .stRadio label:hover span {
+        color: #D0D8E8 !important;
+    }
+
+    /* Hide the radio circle dot only */
+    [data-testid="stSidebar"] .stRadio label > div:first-child {
+        display: none !important;
+    }
+
+    /* Selected / active item — Streamlit adds aria-checked on the input */
+    [data-testid="stSidebar"] .stRadio label:has(input:checked) {
+        background: rgba(0, 212, 170, 0.12) !important;
+        border-color: rgba(0, 212, 170, 0.28) !important;
+        color: #00D4AA !important;
+    }
+
+    [data-testid="stSidebar"] .stRadio label:has(input:checked) span {
+        color: #00D4AA !important;
+        font-weight: 600 !important;
     }
 
     /* Metric cards */
@@ -153,48 +189,89 @@ st.markdown("""
     /* Hide auto-generated pages nav in sidebar */
     [data-testid="stSidebarNav"] {display: none;}
 
-    /* Hide Deploy button in toolbar */
-    [data-testid="stToolbar"] {visibility: hidden;}
+    /* Hide Deploy button only */
     .stDeployButton {display: none;}
     [data-testid="stAppDeployButton"] {display: none;}
+
+    /* Make sidebar collapse/expand button visible */
+    [data-testid="collapsedControl"] {
+        color: #00D4AA !important;
+        background: #131842 !important;
+        border-radius: 0 8px 8px 0 !important;
+        border: 1px solid rgba(0, 212, 170, 0.3) !important;
+    }
+
+    button[kind="header"] {
+        color: #00D4AA !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Sidebar Navigation ──
 st.sidebar.markdown("""
-<div style="text-align: center; padding: 0.5rem 0 1.5rem 0;">
-    <div style="font-size: 2rem; margin-bottom: 0.2rem;">🛡️</div>
-    <div style="color: #00D4AA; font-size: 1rem; font-weight: 700; letter-spacing: 0.03em;">
-        CYBER INCIDENT
-    </div>
-    <div style="color: #555B7A; font-size: 0.75rem; letter-spacing: 0.08em;">
-        TREND ANALYSIS
-    </div>
+<div style="
+    padding: 1.8rem 1.5rem 1.4rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 212, 170, 0.1);
+    margin-bottom: 0.8rem;
+">
+    <div style="
+        width: 52px; height: 52px;
+        background: rgba(0,212,170,0.08);
+        border: 1px solid rgba(0,212,170,0.25);
+        border-radius: 14px;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 0.9rem;
+    ">🛡️</div>
+    <div style="
+        color: #00D4AA;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        margin-bottom: 0.2rem;
+    ">CYBER INCIDENT</div>
+    <div style="
+        color: #3D4870;
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+    ">TREND ANALYSIS</div>
 </div>
 """, unsafe_allow_html=True)
 
-st.sidebar.markdown("---")
+st.sidebar.markdown("""
+<div style="padding: 0 1.5rem 0.3rem 1.5rem; color: #3A4060; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">
+    Navigation
+</div>
+""", unsafe_allow_html=True)
 
 # Navigation with icons
 page = st.sidebar.radio(
-    "📍 Navigation",
+    "Navigation",
     [
-        "🏠 Home & Problem",
-        "📂 Data & Quality",
-        "🔬 Exploratory Analysis",
-        "🔮 Forecasting",
-        "🔍 Attack Patterns",
-        "📊 Evaluation & Limits",
+        "🏠  Home & Problem",
+        "📂  Data & Quality",
+        "🔬  Exploratory Analysis",
+        "🔮  Forecasting",
+        "🔍  Attack Patterns",
+        "📊  Evaluation & Limits",
     ],
     label_visibility="collapsed",
 )
 
-st.sidebar.markdown("---")
 st.sidebar.markdown("""
-<div style="color: #555B7A; font-size: 0.7rem; text-align: center; padding: 0.5rem;">
+<div style="
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    border-top: 1px solid rgba(0, 212, 170, 0.08);
+    color: #3A4060;
+    font-size: 0.67rem;
+    line-height: 1.8;
+">
     B.Tech CSE · Semester V<br>
     Machine Learning Case Study<br>
-    Data: VCDB · 10,391 incidents
+    VCDB · 10,391 incidents
 </div>
 """, unsafe_allow_html=True)
 
@@ -202,15 +279,15 @@ st.sidebar.markdown("""
 # Import page modules and route based on sidebar selection
 from pages import page_home, page_data_quality, page_eda, page_forecasting, page_clustering, page_evaluation
 
-if page == "🏠 Home & Problem":
+if page == "🏠  Home & Problem":
     page_home.render()
-elif page == "📂 Data & Quality":
+elif page == "📂  Data & Quality":
     page_data_quality.render()
-elif page == "🔬 Exploratory Analysis":
+elif page == "🔬  Exploratory Analysis":
     page_eda.render()
-elif page == "🔮 Forecasting":
+elif page == "🔮  Forecasting":
     page_forecasting.render()
-elif page == "🔍 Attack Patterns":
+elif page == "🔍  Attack Patterns":
     page_clustering.render()
-elif page == "📊 Evaluation & Limits":
+elif page == "📊  Evaluation & Limits":
     page_evaluation.render()
