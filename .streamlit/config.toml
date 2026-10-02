@@ -1,0 +1,17 @@
+# Streamlit theme configuration
+# Deep navy background with teal/cyan accents for a security operations dashboard look
+
+[theme]
+primaryColor = "#00D4AA"
+backgroundColor = "#0A0E27"
+secondaryBackgroundColor = "#131842"
+textColor = "#E0E6ED"
+font = "sans serif"
+
+[server]
+headless = true
+port = 8501
+
+[browser]
+gatherUsageStats = false
+ 
