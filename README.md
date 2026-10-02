@@ -6,6 +6,9 @@ B.Tech CSE — Semester V · Machine Learning Case Study
 Data: VERIS Community Database (VCDB) · 10,391 incidents · Jan 2010 – Jun 2026
 
 ---
+# Cyber Incident Trend Analysis
+
+🔗 **Live Demo:** [Cyber Incident Trend Analysis](https://cyber-incident-trend-analysis-87.streamlit.app/)
 
 ## 📋 Project Overview
 
@@ -38,6 +41,8 @@ streamlit run app.py
 ```
 
 App opens at **http://localhost:8501**
+
+
 
 ---
 
