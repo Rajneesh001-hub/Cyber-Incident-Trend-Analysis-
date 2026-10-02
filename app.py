@@ -149,6 +149,14 @@ st.markdown("""
     /* Hide Streamlit's default footer and menu */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
+
+    /* Hide auto-generated pages nav in sidebar */
+    [data-testid="stSidebarNav"] {display: none;}
+
+    /* Hide Deploy button in toolbar */
+    [data-testid="stToolbar"] {visibility: hidden;}
+    .stDeployButton {display: none;}
+    [data-testid="stAppDeployButton"] {display: none;}
 </style>
 """, unsafe_allow_html=True)
 
