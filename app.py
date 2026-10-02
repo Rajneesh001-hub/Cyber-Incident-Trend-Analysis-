@@ -41,6 +41,10 @@ st.markdown("""
         border-right: 1px solid rgba(0, 212, 170, 0.12);
     }
 
+    [data-testid="stSidebar"] > div:first-child {
+        margin-top: -30px;
+    }
+
     /* Nav item rows */
     [data-testid="stSidebar"] .stRadio > div {
         gap: 2px !important;
