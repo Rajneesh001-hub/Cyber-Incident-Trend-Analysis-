@@ -86,6 +86,14 @@ st.markdown("""
         display: none !important;
     }
 
+    /* Hide radio widget label ("Navigation") — must come AFTER the general label rule */
+    [data-testid="stSidebar"] .stRadio > label,
+    [data-testid="stSidebar"] .stRadio > label p {
+        display: none !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
     /* Selected / active item — Streamlit adds aria-checked on the input */
     [data-testid="stSidebar"] .stRadio label:has(input:checked) {
         background: rgba(0, 212, 170, 0.12) !important;
