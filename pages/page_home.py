@@ -15,10 +15,19 @@ def render():
     # ── Hero Header ──
     st.markdown("""
     <div style="text-align: center; padding: 2rem 0 1rem 0;">
+        <div style="
+            width: 64px; height: 64px;
+            background: rgba(0,212,170,0.08);
+            border: 1px solid rgba(0,212,170,0.25);
+            border-radius: 18px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.1rem;
+        ">🛡️</div>
         <h1 style="font-size: 2.2rem; background: linear-gradient(90deg, #00D4AA, #00B4D8);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 800; margin-bottom: 0.3rem;">
-            🛡️ Cyber Incident Trend Analysis
+            Cyber Incident Trend Analysis
         </h1>
         <p style="color: #8892B0; font-size: 1.05rem; max-width: 800px; margin: auto;">
             Forecasting Monthly Incident Volume &amp; Discovering Attack Patterns Using Machine Learning

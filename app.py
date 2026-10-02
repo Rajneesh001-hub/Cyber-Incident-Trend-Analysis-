@@ -240,12 +240,6 @@ st.sidebar.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.sidebar.markdown("""
-<div style="padding: 0 1.5rem 0.3rem 1.5rem; color: #3A4060; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">
-    Navigation
-</div>
-""", unsafe_allow_html=True)
-
 # Navigation with icons
 page = st.sidebar.radio(
     "Navigation",
@@ -259,21 +253,6 @@ page = st.sidebar.radio(
     ],
     label_visibility="collapsed",
 )
-
-st.sidebar.markdown("""
-<div style="
-    margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    border-top: 1px solid rgba(0, 212, 170, 0.08);
-    color: #3A4060;
-    font-size: 0.67rem;
-    line-height: 1.8;
-">
-    B.Tech CSE · Semester V<br>
-    Machine Learning Case Study<br>
-    VCDB · 10,391 incidents
-</div>
-""", unsafe_allow_html=True)
 
 # ── Page Router ──
 # Import page modules and route based on sidebar selection
